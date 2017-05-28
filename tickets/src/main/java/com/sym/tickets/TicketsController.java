@@ -19,6 +19,8 @@ public class TicketsController {
     @GetMapping("/all")
     public List<Ticket> getAll(){
 
+        System.out.println("Request from tickets received");
         return this.ticketsRepository.findAll();
+
     }
 }
