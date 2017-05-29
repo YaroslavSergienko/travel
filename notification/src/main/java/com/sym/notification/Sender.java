@@ -14,10 +14,11 @@ public class Sender {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    public void send(String to, String subject, String body) {
+    public Email send(String to, String subject, String body) {
 
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper;
+        Email email = null;
         try {
             helper = new MimeMessageHelper(message, true);
 
@@ -27,9 +28,15 @@ public class Sender {
 
             javaMailSender.send(message);
 
+            email = new Email();
+            email.setAdress(to);
+            email.setBody(body);
+            email.setTittle(subject);
+
+
         } catch (MessagingException e) {
             e.printStackTrace();
         }
-
+        return email;
     }
 }

@@ -1,8 +1,9 @@
-package com.sym.tickets;
+package com.sym.notification;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
-public interface TicketsRepository extends MongoRepository<Ticket, String>{
+public interface EmailRepository extends MongoRepository<Email, String> {
 }
